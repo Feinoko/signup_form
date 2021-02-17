@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Truculenta:wght@300;500&display=swap');
+
+html {
+  font-size: 62.5%; /* DX+UX friendly : so that 1rem = 10px... Using Rem is good for accessibility as it allows user to adjust font size with browser */
+}
+
+body, button { /* buttons dont inherit body fonts for some reason */
+  font-family: 'Truculenta', sans-serif;
+  font-weight: 300;
+  font-size: 1.7rem;
+  // letter-spacing: 1px;
+  color: $textColorMain;
+}
+
+.form-header__text {
+  font-size: 2.3rem;
+  line-height: 1.1;
+  font-weight: inherit;
+  
+}
+
+.form-header__highlight-text {
+  color: $textColorFocus;
+  font-weight: bolder;
+  
+}
+
+.form-submit {
+  color: $textColorDark;
+  text-transform: uppercase;
+}
+
+.form-label {
+  font-weight: inherit;
+}
+
+.form-error-message {
+  font-size: 1.3rem;
+  color: $textError;
+}
+

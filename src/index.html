@@ -8,33 +8,47 @@
 </head>
 <body>
   
-  <form action="#" class="signup-form">
+  <form action="#" class="signup-form" name="signup-form">
 
-    <header></header>
+    <header class="form-header">
+      <h1 class="form-header__text"><span class="form-header__highlight-text">_Signup</span> to join <br> our <span class="form-header__highlight-text">Community</span></h1>
+    </header>
 
-    <main>
+    <main class="form-body">
 
       <div class="form-control">
-        <label for="fullname">Full Name</label>
-        <input type="text" id="fullname">
+        <label class="form-label" for="fullname">Full Name</label>
+        <input class="form-input" type="text" id="fullname">
+        <i class="fas fa-check-circle" ></i>
+        <i class="fas fa-exclamation-triangle"></i>
+        <small class="form-error-message">error message</small>
       </div>
   
       <div class="form-control">
-        <label for="username">Username</label>
-        <input type="text" id="username">
+        <label class="form-label" for="username">Username</label>
+        <input class="form-input" type="text" id="username">
+        <i class="fas fa-check-circle" ></i>
+        <i class="fas fa-exclamation-triangle"></i>
+        <small class="form-error-message">error message</small>
       </div>
   
       <div class="form-control">
-        <label for="password">Password</label>
-        <input type="password" id="password">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-input" type="password" id="password">
+        <i class="fas fa-check-circle" ></i>
+        <i class="fas fa-exclamation-triangle"></i>
+        <small class="form-error-message">error message</small>
       </div>
   
       <div class="form-control">
-        <label for="email">Full Name</label>
-        <input type="email" id="email">
+        <label class="form-label" for="email">Full Name</label>
+        <input class="form-input" type="email" id="email">
+        <i class="fas fa-check-circle" ></i>
+        <i class="fas fa-exclamation-triangle"></i>
+        <small class="form-error-message">error message</small>
       </div>
 
-      <button type="submit">signup</button>
+      <button class="form-submit" type="submit">signup</button>
 
     </main>
 

@@ -3,9 +3,71 @@
 @import './resets';
 @import './utilities';
 @import './desktop';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+
+
+/* =======
+GLOBALS
+========== */
 
 body {
   min-height: 100vh;
   width: 100%;
-  // background: 
+  background: linear-gradient(to top right, #344f38, rgba(192, 255, 199, 0.385)),
+              url(../media/form_bg.jpg) center center / cover no-repeat;
+  // background-blend-mode: hard-light;
+  // background-blend-mode: hard-light;
+  background-blend-mode: color;
+  // background-blend-mode: screen;
+  // background-blend-mode: hard-light;
+  @include flex(row, center, center);
 }
+
+.signup-form {
+  background-color: #1C2C3A;
+  
+  width: clamp(330px, 40%, 500px);
+  // height: clamp(500px, 70vh, 640px);
+  min-height: 250px;
+  border-radius: $borderRadius;
+  
+}
+
+/* =======
+FORM HEADER
+========== */
+
+.form-header {
+  background-color: #434f5a;
+  padding: $form-padding;
+  border-top-left-radius: $borderRadius;
+  border-top-right-radius: $borderRadius;
+}
+
+.form-body {
+  padding: $form-padding;
+}
+
+.form-control {
+  padding-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+}
+
+.form-input {
+  
+}
+
+.form-error-message {
+  display: block;
+}
+
+
+
+
+
+
+

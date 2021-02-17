@@ -1,5 +1,16 @@
-/* variables, mixins, functions... */
+/* ========
+VARIABLES
+==========*/
 
-$grey: #424242;
+$fa-font-path: "../webfonts"; 
+$borderRadius: 18px;
 
+/* layout */
+$form-padding: 1.3rem 2rem;
+
+/* text colors */
+$textColorMain: #d6d6d6;
+$textColorFocus: hsl(126, 28%, 62%);
+$textColorDark: #1c2c3a;
+$textError: lightcoral;
 
