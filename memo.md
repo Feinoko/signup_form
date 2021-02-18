@@ -16,9 +16,9 @@ Current-task
 -> 
 ---
 Steps to complete:
-#1 : 
-#2 : 
-#3 : 
+#1 : markup
+#2 : style
+#3 : form validation with js
 ---
 
 Main steps for MVP (minimum viable product) :
@@ -32,8 +32,8 @@ Main steps for MVP (minimum viable product) :
 
 secondary/optional features (added functionalities, cosmetic, UI/UX,... ):
 ------------------
-#1 : 
-#2 : 
+#1 : hide/show password toggle with eye icon
+#2 : change label color when focus on input with js
 #3 : 
 
 

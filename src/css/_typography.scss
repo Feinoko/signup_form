@@ -7,13 +7,13 @@ html {
 body, button { /* buttons dont inherit body fonts for some reason */
   font-family: 'Truculenta', sans-serif;
   font-weight: 300;
-  font-size: 1.7rem;
+  font-size: $textSizeMedium;
   // letter-spacing: 1px;
   color: $textColorMain;
 }
 
 .form-header__text {
-  font-size: 2.3rem;
+  font-size: $textSizeBig;
   line-height: 1.1;
   font-weight: inherit;
   
@@ -23,6 +23,12 @@ body, button { /* buttons dont inherit body fonts for some reason */
   color: $textColorFocus;
   font-weight: bolder;
   
+}
+
+.form-input {
+  font-family: inherit;
+  font-size: $textSizeMedium;
+  color: $textColorMain;
 }
 
 .form-submit {
@@ -35,7 +41,11 @@ body, button { /* buttons dont inherit body fonts for some reason */
 }
 
 .form-error-message {
-  font-size: 1.3rem;
-  color: $textError;
+  font-size: $textSizeSmall;
+  color: $textColorError;
+}
+
+.form-submit {
+  font-weight: 500;
 }
 

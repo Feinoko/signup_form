@@ -3,14 +3,22 @@ VARIABLES
 ==========*/
 
 $fa-font-path: "../webfonts"; 
-$borderRadius: 18px;
+$borderRadius: 1.8rem;
 
 /* layout */
-$form-padding: 1.3rem 2rem;
+$form-padding: 1.3rem 2.5rem;
 
 /* text colors */
 $textColorMain: #d6d6d6;
 $textColorFocus: hsl(126, 28%, 62%);
 $textColorDark: #1c2c3a;
-$textError: lightcoral;
+$textColorError: lightcoral;
+
+/*text sizes */
+$textSizeSmall: 1.3rem;
+$textSizeMedium: 1.7rem;
+$textSizeBig: 2.3rem;
+
+/* background */
+$bgMain: #1c2c3a;
 

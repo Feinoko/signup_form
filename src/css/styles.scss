@@ -1,11 +1,10 @@
-@import './config';
-@import './typography';
-@import './resets';
-@import './utilities';
-@import './desktop';
-@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
-
+@import "./config";
+@import "./typography";
+@import "./resets";
+@import "./utilities";
+@import "./desktop";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 
 /* =======
 GLOBALS
@@ -15,7 +14,7 @@ body {
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(to top right, #344f38, rgba(192, 255, 199, 0.385)),
-              url(../media/form_bg.jpg) center center / cover no-repeat;
+    url(../media/form_bg.jpg) center center / cover no-repeat;
   // background-blend-mode: hard-light;
   // background-blend-mode: hard-light;
   background-blend-mode: color;
@@ -25,13 +24,12 @@ body {
 }
 
 .signup-form {
-  background-color: #1C2C3A;
-  
+  background-color: #1c2c3a;
+
   width: clamp(330px, 40%, 500px);
   // height: clamp(500px, 70vh, 640px);
   min-height: 250px;
   border-radius: $borderRadius;
-  
 }
 
 /* =======
@@ -58,16 +56,42 @@ FORM HEADER
 }
 
 .form-input {
+  padding: 0.5rem 1rem;
+  background-color: $bgMain;
+  border: none;
+  border-bottom: 1px solid $textColorMain;
+  width: 100%;
+  caret-color: $textColorMain;
+  outline: none;
+  transition: border .3s ease;
   
+
+  &:focus {
+    border-bottom: 1px solid $textColorFocus;
+  }
 }
 
 .form-error-message {
   display: block;
 }
 
+.form-submit {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  background-color: $textColorFocus;
+  border: none;
+  border-radius: 1rem;
+  padding: .8rem 0;
+  transition: background-color .4s ease;
 
+  &:hover,
+  &:focus {
+    background-color: darken($textColorFocus, 12%);
+    outline: none;
+    box-shadow:
+      0 0 0 2px $textColorDark,
+      0 0 0 4px $textColorMain;
+  }
 
-
-
-
-
+}
