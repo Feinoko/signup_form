@@ -14,6 +14,10 @@ $textColorFocus: hsl(126, 28%, 62%);
 $textColorDark: #1c2c3a;
 $textColorError: lightcoral;
 
+/* icon colors */
+$iconSuccess: $textColorFocus;
+$iconError: lightcoral;
+
 /*text sizes */
 $textSizeSmall: 1.3rem;
 $textSizeMedium: 1.7rem;

@@ -49,6 +49,7 @@ FORM HEADER
 
 .form-control {
   padding-bottom: 1rem;
+  position: relative;
 }
 
 .form-label {
@@ -71,8 +72,18 @@ FORM HEADER
   }
 }
 
-.form-error-message {
+.icon-success, .icon-error {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-68%);
+  visibility: hidden;
+}
+
+.form-validation-message {
   display: block;
+  margin-bottom: 1rem;
+  visibility: hidden;
 }
 
 .form-submit {
@@ -84,11 +95,16 @@ FORM HEADER
   border-radius: 1rem;
   padding: .8rem 0;
   transition: background-color .4s ease;
+  margin: 1rem 0;
 
   &:hover,
   &:focus {
     background-color: darken($textColorFocus, 12%);
     outline: none;
+    
+  } 
+
+  &:focus {
     box-shadow:
       0 0 0 2px $textColorDark,
       0 0 0 4px $textColorMain;

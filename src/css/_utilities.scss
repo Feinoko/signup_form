@@ -17,3 +17,41 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+// form-validation
+
+.signup-form-validation-success {
+
+  .icon-success {
+    color: $iconSuccess;
+    visibility: visible;
+  }
+
+  input {
+    color: $textColorFocus;
+  }
+
+  .form-validation-message {
+    visibility: visible;
+    color: $textColorFocus;
+  }
+
+}
+
+.signup-form-validation-error {
+
+  .icon-success {
+    color: $iconError;
+    visibility: visible;
+  }
+
+  .form-validation-message {
+    visibility: visible;
+    color: $textColorError;
+  }
+
+  input {
+    color: $iconError;
+  }
+
+}
