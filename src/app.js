@@ -1,4 +1,5 @@
-// import {hey} from './js/bro'; // example to show routing
+import './js/formValidation';
 import 'regenerator-runtime/runtime'; // required when using async/await with parcel
 import './css/styles.scss'; // styles entry point
+
 

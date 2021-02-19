@@ -43,6 +43,11 @@ FORM HEADER
   border-top-right-radius: $borderRadius;
 }
 
+
+/* =======
+FORM BODY
+========== */
+
 .form-body {
   padding: $form-padding;
 }
@@ -70,6 +75,15 @@ FORM HEADER
   &:focus {
     border-bottom: 1px solid $textColorFocus;
   }
+
+  &::placeholder {
+    color: $textPlaceholderColor;
+  }
+
+  &:focus::placeholder {
+    visibility: hidden;
+  }
+
 }
 
 .icon-success, .icon-error {
@@ -86,6 +100,11 @@ FORM HEADER
   visibility: hidden;
 }
 
+
+/* =======
+FORM SUBMIT
+========== */
+
 .form-submit {
   display: block;
   width: 100%;
@@ -93,15 +112,17 @@ FORM HEADER
   background-color: $textColorFocus;
   border: none;
   border-radius: 1rem;
-  padding: .8rem 0;
+  padding: 1.5rem 0;
   transition: background-color .4s ease;
   margin: 1rem 0;
+
+
+  /* accessibility */
 
   &:hover,
   &:focus {
     background-color: darken($textColorFocus, 12%);
     outline: none;
-    
   } 
 
   &:focus {

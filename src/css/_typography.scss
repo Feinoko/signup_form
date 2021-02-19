@@ -29,6 +29,10 @@ body, button { /* buttons dont inherit body fonts for some reason */
   font-family: inherit;
   font-size: $textSizeMedium;
   color: $textColorMain;
+
+  &::placeholder {
+    font-size: 1.5rem;
+  }
 }
 
 .form-submit {

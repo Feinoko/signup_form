@@ -2,7 +2,7 @@
 VARIABLES
 ==========*/
 
-$fa-font-path: "../webfonts"; 
+$fa-font-path: "../webfonts"; // relative path from the src/css folder
 $borderRadius: 1.8rem;
 
 /* layout */
@@ -13,6 +13,7 @@ $textColorMain: #d6d6d6;
 $textColorFocus: hsl(126, 28%, 62%);
 $textColorDark: #1c2c3a;
 $textColorError: lightcoral;
+$textPlaceholderColor: rgb(111, 111, 111);
 
 /* icon colors */
 $iconSuccess: $textColorFocus;
