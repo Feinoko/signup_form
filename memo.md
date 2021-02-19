@@ -39,7 +39,7 @@ secondary/optional features (added functionalities, cosmetic, UI/UX,... ):
 
 problems/bugs to fix:
 ------------------
-#1 : 
+#1 : fullname validation : when empty, regex error msg appears instead of 'required field'
 #2 : 
 #3 : 
 
