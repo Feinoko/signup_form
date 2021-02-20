@@ -27,12 +27,16 @@
     visibility: visible;
   }
 
+  .icon-error {
+    visibility: hidden; /* debug: to avoid both icons to be there same time in case form correction */
+  }
+
   input {
     color: $textColorFocus;
   }
 
   .form-validation-message {
-    visibility: visible;
+    visibility: hidden;
     color: $textColorFocus;
   }
 
@@ -43,6 +47,10 @@
   .icon-error {
     color: $iconError;
     visibility: visible;
+  }
+
+  .icon-success {
+    visibility: hidden; /* debug: to avoid both icons to be there same time in case form correction */
   }
 
   .form-validation-message {

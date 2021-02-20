@@ -40,12 +40,12 @@ secondary/optional features (added functionalities, cosmetic, UI/UX,... ):
 problems/bugs to fix:
 ------------------
 #1 : fullname validation : when empty, regex error msg appears instead of 'required field'
-#2 : 
+#2 : refactor logic of validation : disable button unless form is validated. If hover on disabled button, show error msgs. validate input on blur, if error then remove warning style + input value on focus
 #3 : 
 
 Stashed tasks (put on backburner to keep focused on current task)
 ==========
-#1 : 
+#1 : setError on validate fullname
 #2 : 
 #3 : 
 ========== 
