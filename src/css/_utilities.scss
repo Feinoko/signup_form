@@ -40,7 +40,7 @@
 
 .signup-form-validation-error {
 
-  .icon-success {
+  .icon-error {
     color: $iconError;
     visibility: visible;
   }
@@ -50,8 +50,14 @@
     color: $textColorError;
   }
 
-  input {
+  input, label, span {
     color: $iconError;
   }
+
+  label:hover {
+    color: $textColorError;
+  }
+
+
 
 }

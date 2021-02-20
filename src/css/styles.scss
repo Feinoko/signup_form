@@ -59,6 +59,20 @@ FORM BODY
 
 .form-label {
   display: block;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: 2%;
+
+  &:hover {
+    color: $textColorFocus;
+  }
+
+}
+
+.required-form-input {
+  color: $textColorFocus;
+  display: inline-block;
+  transform: translateY(-25%);
 }
 
 .form-input {
@@ -70,6 +84,7 @@ FORM BODY
   caret-color: $textColorMain;
   outline: none;
   transition: border .3s ease;
+  
   
 
   &:focus {
