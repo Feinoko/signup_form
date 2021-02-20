@@ -4,15 +4,18 @@
 EVENT HANDLERS
 ========== */
 
-const form = document.querySelector('.signup-form');
-form.addEventListener('submit', (e) => {
+/* deprecated since decided to change validation check trigger */
 
-  e.preventDefault();
+// const form = document.querySelector('.signup-form');
+// form.addEventListener('submit', (e) => {
 
-  if (validateForm()) {
-    form.submit();
-  }
-})
+//   e.preventDefault();
+
+//   if (validateForm()) {
+//     form.submit();
+//   }
+// })
+
 
 /* trigger validation check on leaving input (blur) */
 
@@ -30,27 +33,20 @@ EL_inputs.forEach(input => {
 
     EL_input.addEventListener('blur', (e) => {
       validateFullName();
-      // EL_input.style = 'border: 1px solid red';
 
     })
   })
 })
 
-
-
-// validate of leaving input field
-// EL_input.addEventListener('blur', (e) => {
-//   // validateForm();
-//   EL_input.style = 'border: 1px solid red';
-// })
-
 /* ================
 FUNCTION DEFINITIONS
 ================= */
 
-/* DOM variables */
 
-// validatiing full name
+/* Validation system : each validation function returns boolean (true if passes) */
+
+/* validating full name */
+
 function validateFullName() {
   const fullNameInput = document.querySelector('#fullname');
   const EL_errorMessage = document.querySelector('#fullname ~ small'); // selecting sibling
@@ -58,15 +54,16 @@ function validateFullName() {
 
   const arguments = [fullNameInput, inputValue, EL_errorMessage]
   // using spread operator to pass the same arguments in below functions (avoid repetition)
-  checkForEmptyInput(...arguments);
-  checkForLettersOnly(...arguments);
+  const inputNotEmpty = checkForEmptyInput(...arguments); 
+  const lettersOnly = checkForLettersOnly(...arguments);
 
   // all checks must return true to validate field
-  if (checkForEmptyInput && checkForLettersOnly) {
+  if (inputNotEmpty && lettersOnly) {
     setSuccess(fullNameInput);
   }
 
 }
+
 
 /* lv1 functions */
 
@@ -76,6 +73,7 @@ function checkForEmptyInput(fullNameInput, inputValue, EL_errorMessage) {
     setError(fullNameInput, EL_errorMessage, 'required field');
     return false;
   }
+  console.log('checkForEmptyInput passes')
   return true;
 }
 
@@ -90,19 +88,27 @@ function checkForLettersOnly(fullNameInput, inputValue, EL_errorMessage) {
     EL_errorMessage.textContent = 'please type valid name (letters only)';
     return false;
   }
+  console.log('checkForLettersOnly passes')
   return true;
 }
+
 
 /* lv2 functions */
 
 // set error 
 function setError(fullNameInput, EL_errorMessage, errMsg) {
+  // debug: removing success class if user changes input
+  fullNameInput.parentElement.classList.remove('signup-form-validation-success');
+  // then applying the error class/msg
   fullNameInput.parentElement.classList.add('signup-form-validation-error');
   EL_errorMessage.textContent = errMsg;
 }
 
 // set success
 function setSuccess(fullNameInput) {
+  // debug: removing error class if user changes input
+  fullNameInput.parentElement.classList.remove('signup-form-validation-error');
+  // then applying the success class
   fullNameInput.parentElement.classList.add('signup-form-validation-success');
 }
 
