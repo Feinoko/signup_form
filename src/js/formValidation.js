@@ -26,13 +26,27 @@ EL_inputs = Array.from(EL_inputs);
 
 let EL_input; // placeholder for element that will be in focus
 
-// put event listner on all inputs & target the one element that is being focused
+// put event listener on all inputs & target the one element that is being focused
 EL_inputs.forEach(input => {
   input.addEventListener('focus', (e) => {
     EL_input = e.target;
 
+    // getting which input (to then apply the relevant validate check)
+    const whichInput = EL_input.id;
+    console.log(whichInput);
+
+    // when user leaves the field, call relevant validation
     EL_input.addEventListener('blur', (e) => {
-      validateFullName();
+      
+      // switchboard controlling which validation is called depending on which input is in focus
+      switch (whichInput) {
+        case 'fullname' : validateFullName();
+        console.log('test');
+        break;
+      }
+
+      
+
 
     })
   })
@@ -61,7 +75,6 @@ function validateFullName() {
   if (inputNotEmpty && lettersOnly) {
     setSuccess(fullNameInput);
   }
-
 }
 
 
@@ -83,9 +96,7 @@ function checkForLettersOnly(fullNameInput, inputValue, EL_errorMessage) {
   // any number (the ‘+’) of lower/uppercase letters only [a-zA-Z ], from start to finish (^ and $), any number of spaces permitted anywhere (see the white space after the Z)
 
   if (!RE.test(inputValue)) {
-    console.log('please type valid name');
-    fullNameInput.parentElement.classList.add('signup-form-validation-error');
-    EL_errorMessage.textContent = 'please type valid name (letters only)';
+    setError(fullNameInput, EL_errorMessage, 'please type valid name (letters only)')
     return false;
   }
   console.log('checkForLettersOnly passes')
