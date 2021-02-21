@@ -1,21 +1,16 @@
+/* ================================================
+Form Validation
 
+Flow: 
+
+Remarks :
+-all variables starting with EL_ reference a DOM element
+
+================================================= */
 
 /* ==========
 EVENT HANDLERS
 ========== */
-
-/* deprecated since decided to change validation check trigger */
-
-// const form = document.querySelector('.signup-form');
-// form.addEventListener('submit', (e) => {
-
-//   e.preventDefault();
-
-//   if (validateForm()) {
-//     form.submit();
-//   }
-// })
-
 
 /* trigger validation check on leaving input (blur) */
 
@@ -37,15 +32,19 @@ EL_inputs.forEach(input => {
 
     // when user leaves the field, call relevant validation
     EL_input.addEventListener('blur', (e) => {
-      
+
       // switchboard controlling which validation is called depending on which input is in focus
       switch (whichInput) {
-        case 'fullname' : validateFullName();
-        console.log('test');
-        break;
+
+        case 'fullname': validateFullName();
+          break;
+
+        case 'username': validateUserName();
+          break;
+
       }
 
-      
+
 
 
     })
@@ -59,27 +58,62 @@ FUNCTION DEFINITIONS
 
 /* Validation system : each validation function returns boolean (true if passes) */
 
+
+/* assigning variables used for each validation */
+
+let EL_errorMessage; // points to the warning message element
+let inputValue; // the value the user enters in field
+let args; // shorthand (using spread operator) of all the relevant arguments to pass in the validation methods
+
+
 /* validating full name */
 
 function validateFullName() {
-  const fullNameInput = document.querySelector('#fullname');
-  const EL_errorMessage = document.querySelector('#fullname ~ small'); // selecting sibling
-  const inputValue = fullNameInput.value.trim(); // trim to remove white space before and after
+  
+  getVarsForValidation('fullname');
 
-  const arguments = [fullNameInput, inputValue, EL_errorMessage]
-  // using spread operator to pass the same arguments in below functions (avoid repetition)
-  const inputNotEmpty = checkForEmptyInput(...arguments); 
-  const lettersOnly = checkForLettersOnly(...arguments);
+  // validation trials
+  console.log(args); //d
+  const inputNotEmpty = checkForEmptyInput(...args);
+  let lettersOnly; // declaring before 'if' to avoid scope issue
+  if (inputNotEmpty) { // debug : to avoid this error overriding the preceding check for empty input
+    lettersOnly = checkForLettersOnly(...args);
+  }
+  // using spread operator to pass the same arguments in above functions (avoid repetition)
 
   // all checks must return true to validate field
   if (inputNotEmpty && lettersOnly) {
-    setSuccess(fullNameInput);
+    setSuccess(EL_input);
+  }
+}
+
+/* validating user name */
+
+function validateUserName() {
+
+  getVarsForValidation('username');
+
+  // validation trials
+  const inputNotEmpty = checkForEmptyInput(...args);
+
+  // all checks must return true to validate field
+  if (inputNotEmpty) {
+    setSuccess(EL_input);
   }
 }
 
 
 /* lv1 functions */
 
+// get relevant variables used for validation
+function getVarsForValidation(inputID) {
+  EL_input = document.querySelector(`#${inputID}`);
+  EL_errorMessage = document.querySelector(`#${inputID}~small`); // selecting sibling
+  inputValue = EL_input.value.trim(); // trim to remove white space before and after
+  args = [EL_input, inputValue, EL_errorMessage];
+}
+
+/* validations */
 // check for empty string
 function checkForEmptyInput(fullNameInput, inputValue, EL_errorMessage) {
   if (inputValue === "") {
@@ -107,20 +141,20 @@ function checkForLettersOnly(fullNameInput, inputValue, EL_errorMessage) {
 /* lv2 functions */
 
 // set error 
-function setError(fullNameInput, EL_errorMessage, errMsg) {
+function setError(EL_input, EL_errorMessage, errMsg) {
   // debug: removing success class if user changes input
-  fullNameInput.parentElement.classList.remove('signup-form-validation-success');
+  EL_input.parentElement.classList.remove('signup-form-validation-success');
   // then applying the error class/msg
-  fullNameInput.parentElement.classList.add('signup-form-validation-error');
+  EL_input.parentElement.classList.add('signup-form-validation-error');
   EL_errorMessage.textContent = errMsg;
 }
 
 // set success
-function setSuccess(fullNameInput) {
+function setSuccess(EL_input) {
   // debug: removing error class if user changes input
-  fullNameInput.parentElement.classList.remove('signup-form-validation-error');
+  EL_input.parentElement.classList.remove('signup-form-validation-error');
   // then applying the success class
-  fullNameInput.parentElement.classList.add('signup-form-validation-success');
+  EL_input.parentElement.classList.add('signup-form-validation-success');
 }
 
 

@@ -45,7 +45,7 @@ problems/bugs to fix:
 
 Stashed tasks (put on backburner to keep focused on current task)
 ==========
-#1 : setError on validate fullname
-#2 : 
+#1 : 
+#2 : add 'name' attribute to inputs
 #3 : 
 ========== 
