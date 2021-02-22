@@ -32,7 +32,7 @@ EL_inputs.forEach(input => {
 
     // when user leaves the field, call relevant validation
     EL_input.addEventListener('blur', (e) => {
-
+      
       // switchboard controlling which validation is called depending on which input is in focus
       switch (whichInput) {
 
@@ -42,11 +42,12 @@ EL_inputs.forEach(input => {
         case 'username': validateUserName();
           break;
 
+        case 'password' : validatePassword();
+          break;
+
+        case 'email' : validateEmail();
+          break;
       }
-
-
-
-
     })
   })
 })
@@ -87,6 +88,7 @@ function validateFullName() {
   }
 }
 
+
 /* validating user name */
 
 function validateUserName() {
@@ -101,6 +103,43 @@ function validateUserName() {
     setSuccess(EL_input);
   }
 }
+
+
+/* validating password */
+
+function validatePassword() {
+
+  getVarsForValidation('password');
+
+  // validation trials
+  const inputNotEmpty = checkForEmptyInput(...args);
+
+  // all checks must return true to validate field
+  if (inputNotEmpty) {
+    setSuccess(EL_input);
+  }
+
+}
+
+
+/* validating email */
+
+function validateEmail() {
+
+  getVarsForValidation('email');
+
+  // validation trials
+  const inputNotEmpty = checkForEmptyInput(...args);
+  const isEmailFormat = checkForEmailFormat(...args);
+
+  // all checks must return true to validate field
+  if (inputNotEmpty && isEmailFormat) {
+    setSuccess(EL_input);
+  }
+
+}
+
+
 
 
 /* lv1 functions */
@@ -135,6 +174,21 @@ function checkForLettersOnly(fullNameInput, inputValue, EL_errorMessage) {
   }
   console.log('checkForLettersOnly passes')
   return true;
+}
+
+function checkForEmailFormat(EL_input, inputValue, EL_errorMessage) {
+
+  const RE = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+
+  if (!RE.test(inputValue)) {
+    setError(EL_input, EL_errorMessage, 'please type valid email format')
+    return false;
+  }
+
+  console.log('checkForEmailFormat passes')
+  return true;
+  
+
 }
 
 
