@@ -48,6 +48,9 @@ EL_inputs.forEach(input => {
         case 'email' : validateEmail();
           break;
       }
+
+      // checkForEnableSubmit();
+
     })
   })
 })

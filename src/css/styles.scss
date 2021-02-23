@@ -131,12 +131,22 @@ FORM SUBMIT
   transition: background-color .4s ease;
   margin: 1rem 0;
 
+  &--disabled {
+    background-color: $submitDisabled;
+  }
+
 
   /* accessibility */
 
   &:hover,
   &:focus {
     background-color: darken($textColorFocus, 12%);
+    outline: none;
+  } 
+
+  &--disabled:hover,
+  &--disabled:focus {
+    background-color: $submitDisabled;
     outline: none;
   } 
 
