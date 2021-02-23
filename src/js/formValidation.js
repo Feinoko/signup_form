@@ -144,17 +144,15 @@ function validateEmail() {
 function checkForEnableSubmit(EL_inputs) {
   let enable = true; 
   EL_inputs.forEach(input => {
-    // console.log(input.classList);
     // check if any input has error, if so apply disabled class to submit btn
-    if(input.parentElement.classList.contains('signup-form-validation-error')) {
-      
+    if(!input.parentElement.classList.contains('signup-form-validation-success')) {
       enable = false;
     }
   })
   if (!enable) {
-    document.querySelector('.form-submit').classList.add('.form-submit--disabled');
+    document.querySelector('.form-submit').classList.add('form-submit--disabled');
   } else {
-    document.querySelector('.form-submit').classList.remove('.form-submit--disabled');
+    document.querySelector('.form-submit').classList.remove('form-submit--disabled');
   }
 }
 
