@@ -46,6 +46,7 @@ problems/bugs to fix:
 Stashed tasks (put on backburner to keep focused on current task)
 ==========
 #1 : change fullname input on validation fctions checkForLettersOnly and checkfullname
-#2 : 
-#3 : 
+#2 : change bem name signup-form-validation-success to signup-form--validation-success (same for error)
+#3 : recheck specificity issue with btn submit disabled style
+#4 : 
 ========== 
