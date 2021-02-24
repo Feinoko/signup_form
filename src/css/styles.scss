@@ -136,9 +136,6 @@ FORM SUBMIT
     cursor: not-allowed;
   }
 
-
-  /* accessibility */
-
   &:hover,
   &:focus {
     background-color: darken($textColorFocus, 12%);
@@ -152,6 +149,8 @@ FORM SUBMIT
     cursor: not-allowed;
   } 
 
+  /* accessibility */
+  
   &:focus {
     box-shadow:
       0 0 0 2px $textColorDark,

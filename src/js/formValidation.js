@@ -37,7 +37,16 @@ EL_inputs.forEach(input => {
   })
 })
 
+/* submitting the form */
 
+const EL_submit = document.querySelector('.form-submit');
+EL_submit.addEventListener('click', (e) => {
+
+  if (EL_submit.classList.contains('form-submit--disabled')) {
+    e.preventDefault();
+    console.log('cannot submit form');
+  }
+})
 
 /* ================
 FUNCTION DEFINITIONS
@@ -186,7 +195,6 @@ function checkForEmptyInput(fullNameInput, inputValue, EL_errorMessage) {
     setError(fullNameInput, EL_errorMessage, 'required field');
     return false;
   }
-  console.log('checkForEmptyInput passes')
   return true;
 }
 
