@@ -45,7 +45,7 @@ problems/bugs to fix:
 
 Stashed tasks (put on backburner to keep focused on current task)
 ==========
-#1 : change fullname input on validation fctions checkForLettersOnly and checkfullname
+#1 : 
 #2 : change bem name signup-form-validation-success to signup-form--validation-success (same for error)
 #3 : recheck specificity issue with btn submit disabled style
 #4 : if correcting an input, the user wants to submit directly form, without blurring the field thus triggering check validation

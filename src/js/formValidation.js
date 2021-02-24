@@ -203,8 +203,6 @@ function checkForEmailFormat(EL_input, inputValue, EL_errorMessage) {
 
   console.log('checkForEmailFormat passes')
   return true;
-  
-
 }
 
 
@@ -215,14 +213,14 @@ function setError(EL_input, EL_errorMessage, errMsg) {
   // debug: removing success class if user changes input
   EL_input.parentElement.classList.remove('signup-form-validation-success');
   // then applying the error class/msg
-  EL_input.parentElement.classList.add('signup-form-validation-error');
+  EL_input.parentElement.classList.add('signup-form--validation-error');
   EL_errorMessage.textContent = errMsg;
 }
 
 // set success
 function setSuccess(EL_input) {
   // debug: removing error class if user changes input
-  EL_input.parentElement.classList.remove('signup-form-validation-error');
+  EL_input.parentElement.classList.remove('signup-form--validation-error');
   // then applying the success class
   EL_input.parentElement.classList.add('signup-form-validation-success');
 }
