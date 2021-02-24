@@ -20,40 +20,24 @@ let EL_inputs = document.getElementsByClassName('form-input');
 EL_inputs = Array.from(EL_inputs);
 
 let EL_input; // placeholder for element that will be in focus
+let whichInput; // placeholder for the input that will be in focus
 
 // put event listener on all inputs & target the one element that is being focused
 EL_inputs.forEach(input => {
   input.addEventListener('focus', (e) => {
+    // console.log('field is in focus');
     EL_input = e.target;
 
     // getting which input (to then apply the relevant validate check)
-    const whichInput = EL_input.id;
+    whichInput = EL_input.id;
     console.log(whichInput);
 
     // when user leaves the field, call relevant validation
-    EL_input.addEventListener('blur', (e) => {
-      
-      // switchboard controlling which validation is called depending on which input is in focus
-      switch (whichInput) {
-
-        case 'fullname': validateFullName();
-          break;
-
-        case 'username': validateUserName();
-          break;
-
-        case 'password' : validatePassword();
-          break;
-
-        case 'email' : validateEmail();
-          break;
-      }
-
-      checkForEnableSubmit(EL_inputs);
-
-    })
+    EL_input.addEventListener('blur', validateRelevantInput)
   })
 })
+
+
 
 /* ================
 FUNCTION DEFINITIONS
@@ -73,11 +57,11 @@ let args; // shorthand (using spread operator) of all the relevant arguments to 
 /* validating full name */
 
 function validateFullName() {
-  
+
   getVarsForValidation('fullname');
 
   // validation trials
-  console.log(args); //d
+  // console.log(args); //d
   const inputNotEmpty = checkForEmptyInput(...args);
   let lettersOnly; // declaring before 'if' to avoid scope issue
   if (inputNotEmpty) { // debug : to avoid this error overriding the preceding check for empty input
@@ -141,11 +125,38 @@ function validateEmail() {
   }
 }
 
+
+function validateRelevantInput() {
+
+  // console.log('validateRelevantInput called');
+
+  // switchboard controlling which validation is called depending on which input is in focus
+  switch (whichInput) {
+
+    case 'fullname': validateFullName();
+      break;
+
+    case 'username': validateUserName();
+      break;
+
+    case 'password': validatePassword();
+      break;
+
+    case 'email': validateEmail();
+      break;
+  }
+  // patch : removing the event listener immediately, so that focus event listeners dont pile up each time user focuses the input
+  EL_input.removeEventListener('blur', validateRelevantInput);
+  // console.log('removed blur event listener');
+  checkForEnableSubmit(EL_inputs);
+}
+
+// check if submit btn should become available for submission
 function checkForEnableSubmit(EL_inputs) {
-  let enable = true; 
+  let enable = true;
   EL_inputs.forEach(input => {
     // check if any input has error, if so apply disabled class to submit btn
-    if(!input.parentElement.classList.contains('signup-form-validation-success')) {
+    if (!input.parentElement.classList.contains('signup-form-validation-success')) {
       enable = false;
     }
   })
