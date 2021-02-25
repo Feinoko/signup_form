@@ -43,6 +43,10 @@ FORM HEADER
   border-top-right-radius: $borderRadius;
 }
 
+// .form__link-to-data {
+
+// }
+
 
 /* =======
 FORM BODY
@@ -55,6 +59,10 @@ FORM BODY
 .form-control {
   padding-bottom: 1rem;
   position: relative;
+}
+
+.form-control:last-of-type {
+  margin-bottom: -1rem;
 }
 
 .form-label {
@@ -163,6 +171,26 @@ FORM SUBMIT
   display: block;
   margin-bottom: 1.2rem;
   margin-left: 3px;
+}
+
+.form__cannot-submit {
+  display: block;
+  margin-left: 3px;
+  margin-bottom: -3px;
+  opacity: 0;
+  transition: color 1.9s ease-in, opacity .3s ease;
+  color: $textColorError;
+  pointer-events: none;
+
+  span {
+    color: $textColorError;
+  }
+
+  &--appear {
+    opacity: 1;
+    color: $textColorMain;
+  }
+
 }
 
 .form-terms--highlight {

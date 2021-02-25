@@ -57,7 +57,7 @@ body, button { /* buttons dont inherit body fonts for some reason */
   font-weight: 500;
 }
 
-.form-terms {
+.form-terms, .form__cannot-submit {
   font-size: 1.5rem;
 }
 

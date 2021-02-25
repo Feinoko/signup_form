@@ -40,11 +40,18 @@ EL_inputs.forEach(input => {
 /* submitting the form */
 
 const EL_submit = document.querySelector('.form-submit');
+const EL_cannotSubmit = document.querySelector('.form__cannot-submit');
 EL_submit.addEventListener('click', (e) => {
 
   if (EL_submit.classList.contains('form-submit--disabled')) {
     e.preventDefault();
     console.log('cannot submit form');
+    // display instructions to submit warning msg
+    EL_cannotSubmit.classList.add('form__cannot-submit--appear');
+    // disappears after a time
+    setTimeout(() => {
+      EL_cannotSubmit.classList.remove('form__cannot-submit--appear');
+    }, 4000)
   }
 })
 

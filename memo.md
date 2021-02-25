@@ -45,8 +45,8 @@ problems/bugs to fix:
 
 Stashed tasks (put on backburner to keep focused on current task)
 ==========
-#1 : 
-#2 : 
-#3 : 
+#1 : make '!' error icon wiggle animation on clicking disabled submit
+#2 : on blur icon animation fades in & slides while rotating (short)
+#3 : modal for terms of service & privacy policy
 #4 : if correcting an input, the user wants to submit directly form, without blurring the field thus triggering check validation
 ========== 
