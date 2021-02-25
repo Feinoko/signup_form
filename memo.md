@@ -49,4 +49,5 @@ Stashed tasks (put on backburner to keep focused on current task)
 #2 : on blur icon animation fades in & slides while rotating (short)
 #3 : modal for terms of service & privacy policy
 #4 : if correcting an input, the user wants to submit directly form, without blurring the field thus triggering check validation
+#5 : trim data value on blur
 ========== 
